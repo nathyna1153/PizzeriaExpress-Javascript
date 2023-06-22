@@ -1,0 +1,96 @@
+body{
+    background-image:  linear-gradient(to bottom, transparent, rgba(245, 225, 195, 0.87));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background: opacity(0.5);
+}
+.header{
+    margin-bottom: 10px;
+    height: 340px;
+}
+.navbar-nav {
+    margin: 0 auto;
+    display: table;
+    table-layout: fixed;
+    float: none !important;
+}
+.navbar-nav > li {
+    display: table-cell;
+    float: none;
+    text-align: center;
+}
+/*Carrusel */
+.contenedor-carrusel{
+    height: 300px;
+}
+.carousel-inner{
+    height: 300px;
+}
+#carouselExampleControls{
+    height: 300px;
+}
+.w-100{
+    height: 300px;
+}
+.carousel-item {
+    height: 53vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+ }
+ /*container*/
+ .contenedor-body{
+    margin-top: 32px;
+ }
+/* buscador*/
+.row-buscador{
+    background: linear-gradient(to top, transparent, rgba(242, 179, 85, 0.87));
+    height: 80px;
+
+}
+.buscador-texto{
+    margin-top: 10px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+/* CARDS*/
+.card-img-top{
+    padding-left: 10px;
+    padding-top: 5px;
+}
+.btn-warning{
+    color: #fff !important;
+    background: #ff9707 !important;
+}
+.card{
+    margin-bottom: 20px;
+}
+
+.card-price {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-price-text {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.card-price-total {
+    font-size: 1.2em;
+}
+ 
+/* CARRITO */
+.badge{
+    margin-right: 8px;
+}
+.text-color-white{
+    color: white; 
+}
+

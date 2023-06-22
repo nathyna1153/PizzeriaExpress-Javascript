@@ -1,0 +1,76 @@
+[
+
+    {
+        "codigo":"001", 
+        "nombre":"vegetariana",
+        "ingredientes": "['Tomate', 'Pimenton', 'Aceituna', 'Champiñón']",
+        "tamanio": "mediana",
+        "precio":"5000",
+        "imagen":"'./src/imagenes/pizzaAceituna.jpg'",
+        "cantidad": "1"
+    },
+    {
+        "codigo":"002", 
+        "nombre":"Italaiana",
+        "ingredientes": "['Salsa de tomate', 'Queso', 'Orégano', 'Tomate']",
+        "tamanio": "mediana",
+        "precio":"6000",
+        "imagen":"'./src/imagenes/pizzaSalame.jpg'",
+        "cantidad": "1"
+    },
+    {
+        "codigo":"003", 
+        "nombre":"española",
+        "ingredientes": "['Salsa de tomate', 'Queso', 'Jamón', 'Choricillo', 'Albahaca']",
+        "tamanio": "mediana",
+        "precio":"6500",
+        "imagen":"'./src/imagenes/pizzaCarne.jpg'",
+        "cantidad": "1"
+    },
+    {
+        "codigo":"004", 
+        "nombre":"carnivora",
+        "ingredientes": "['Salsa de tomate', 'Queso', 'carne', 'Choricillo', 'Tocino']",
+        "tamanio": "mediana",
+        "precio":"7500",
+        "imagen":"'./src/imagenes/pizzaCarne.jpg'",
+        "cantidad": "1"
+    },
+    {
+        "codigo":"005", 
+        "nombre":"vegetariana",
+        "ingredientes": "['Tomate', 'Pimenton', 'Aceituna', 'Champiñón']",
+        "tamanio": "familiar",
+        "precio":"8500",
+        "imagen":"'./src/imagenes/pizzaSalame.jpg'",
+        "cantidad": "1"
+    },
+    {
+        "codigo":"006", 
+        "nombre":"italiana",
+        "ingredientes": "['Salsa de tomate', 'Queso', 'Orégano', 'Tomate']",
+        "tamanio": "familiar",
+        "precio":"8500",
+        "imagen":"'./src/imagenes/pizzaSalame.jpg'",
+        "cantidad": "1"
+    },
+    {
+        "codigo":"007", 
+        "nombre":"española",
+        "ingredientes": "['Salsa de tomate', 'Queso', 'Jamón', 'Choricillo', 'Albahaca']",
+        "tamanio": "familiar",
+        "precio":"9500",
+        "imagen":"'./src/imagenes/pizzaCarne.jpg'",
+        "cantidad": "1"
+    },
+    {
+        "codigo":"008", 
+        "nombre":"carnivora",
+        "ingredientes": "['Salsa de tomate', 'Queso', 'carne', 'Choricillo', 'Tocino']",
+        "tamanio": "familiar",
+        "precio":"10500",
+        "imagen":"'./src/imagenes/pizzaAceituna.jpg'",
+        "cantidad": "1"
+    }
+
+]

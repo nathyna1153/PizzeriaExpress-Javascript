@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image:  linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.87)), url('../imagenes/fondo2.avif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background: opacity(0.5);
+}
+form{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    text-align: center;
+    padding: 30px 35px;
+    box-shadow: 0 5px 10px rgba(147, 100, 61, 0.7);
+}
+form .titulo{
+    color: #252525;
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+form label{
+    margin-bottom: 49px;
+}
+form label input{
+    outline: none;
+    border: none;
+    color: #383838;
+    border-bottom: solid 1px #ce871d;
+    padding: 0 5px;
+    font-size: 25px;
+    
+}
+form label input::placeholder{
+    color: rgba(36, 37, 37, 0.5);
+}
+form button{
+    width: 332px;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: linear-gradient(to right, #ff811a, #efa060);
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 20px;
+    justify-items: center;
+}
+
+form button:hover{
+    color: #fff;
+    background: linear-gradient(to right, #efa060, #ff811a) ;
+}
+
+input:required  label::after{
+    content: "*";
+    color: red;
+}
+.custom-loader{
+    width: 120px;
+    height: 22px;
+    border-radius: 20px;
+    color: #F4BF00;
+    border: 2px solid;
+    position: relative;
+
+}
+.custom-loader::before {
+    content: "";
+    position: absolute;
+    margin: 2px;
+    inset: 0 100% 0 0;
+    border-radius: inherit;
+    background: #f8af74;
+    animation: p6 1s;
+    animation-iteration-count: 4;
+  }
+  @keyframes p6 {
+    100% {
+      inset: 0
+    }
+  }
