@@ -1,3 +1,4 @@
+
 class ProductoPizza {
     constructor(codigo, nombre, ingredientes, imagen, tamanio, precio){
         this.codigo = codigo;
@@ -9,27 +10,11 @@ class ProductoPizza {
         this.cantidad = 1;
     }
 }
-let listadoProductosMediana = [
-    new ProductoPizza('001', 'vegetariana', ['Tomate', 'Pimenton', 'Aceituna', 'Champiñón'], './src/imagenes/pizzaAceituna.jpg', 'mediana', 5000),
-    new ProductoPizza('002', 'italiana', ['Salsa de tomate', 'Queso', 'Orégano', 'Tomate'], './src/imagenes/pizzaSalame.jpg','mediana', 6000),
-    new ProductoPizza('003', 'española', ['Salsa de tomate', 'Queso', 'Jamón', 'Choricillo', 'Albahaca'], './src/imagenes/pizzaCarne.jpg','mediana', 6500),
-    new ProductoPizza('004', 'carnivora', ['Salsa de tomate', 'Queso', 'carne', 'Choricillo', 'Tocino'], './src/imagenes/pizzaAceituna.jpg','mediana', 7500),
-];
-let listadoProductosFamiliar = [
-    new ProductoPizza('005', 'vegetariana', ['Tomate', 'Pimenton', 'Aceituna', 'Champiñón'], './src/imagenes/pizzaAceituna.jpg', 'Familiar', 8500),
-    new ProductoPizza('006', 'italiana', ['Salsa de tomate', 'Queso', 'Orégano', 'Tomate'], './src/imagenes/pizzaSalame.jpg','Familiar', 8500),
-    new ProductoPizza('007', 'española', ['Salsa de tomate', 'Queso', 'Jamón', 'Choricillo', 'Albahaca'], './src/imagenes/pizzaCarne.jpg','Familiar', 9500),
-    new ProductoPizza('008', 'carnivora', ['Salsa de tomate', 'Queso', 'carne', 'Choricillo', 'Tocino'], './src/imagenes/pizzaAceituna.jpg','Familiar', 10500),
-];
+
+let listadoMediana = []//data.JSON;
+let listadoFamiliar = []//datafamiliar.JSON;
 
 rellenaDatosUsuario();
-
-//dibujar el contenedor de cards
-const contenedorCards = document.querySelector("#contenedor-card");
-rellenaCards(listadoProductosMediana, contenedorCards, "M");
-
-const contenedorCardsFamiliares = document.querySelector("#contenedor-card-familiares");
-rellenaCards(listadoProductosFamiliar, contenedorCardsFamiliares, "F");
 
 
 //Dibujando el carrito
@@ -94,8 +79,6 @@ function logout(){
 }
 
 
-pintaCarrito();
-
 function rellenaCards(listaElementos, div, tipo){
     for(elemento of listaElementos){
         let card = document.createElement("div");
@@ -123,18 +106,18 @@ function rellenaCards(listaElementos, div, tipo){
 }
 
 function agregarProducto(codigo,tipo){
-    //alert(codigo+"-"+tipo)
+
     if(tipo == "M"){
-        var pizza = listadoProductosMediana.find(pizzaMediana => {return pizzaMediana.codigo == codigo});
-        //alert(pizza.nombre)
+        var pizza = listadoMediana.find(pizzaMediana => {return pizzaMediana.codigo == codigo});
+        
         agregarACarrito(pizza);
         Swal.fire({
             icon: 'success',
             title: `Tu Pizza ${pizza.nombre} se ha agregado al carrito`
           })
     }else{
-        var pizza = listadoProductosFamiliar.find(pizzaFamiliar => {return pizzaFamiliar.codigo == codigo});
-        //alert(pizza.nombre)
+        var pizza = listadoFamiliar.find(pizzaFamiliar => {return pizzaFamiliar.codigo == codigo});
+        
         agregarACarrito(pizza);
         Swal.fire({
             icon: 'success',
@@ -223,7 +206,21 @@ function eliminarDeCarrito(codigo){
     pintaCarrito();
         
 }
-function confirmarCompra(){
+
+function limpiarCarrito(){
+    listadoGrupo.innerHTML = ``;
+
+    precioTotal.innerHTML = 
+    `
+    <p class="card-price-text">Carrito Vacío</p>
+    `;
+    //inyectar button comprar
+    grillaBotonComprar.innerHTML = ``;
+
+    localStorage.setItem("listadoProductosCarrito", JSON.stringify([]));
+}
+
+function confirmarCompra(codigo){
 
     Swal.fire({
         title: 'Pedido en camino!',
@@ -233,38 +230,31 @@ function confirmarCompra(){
         imageHeight: 150,
         imageAlt: 'Custom image',
         background: '#fff'
-      })
+    })
+    limpiarCarrito();
 
 }
 
-//AGREGAR funcion asincrona
+
 //**** fetch */ 
 fetch('../data.json')
 .then((response)=> response.json())
 .then((data)=>{
-    data.forEach((post) => { //console.log(post)
-        const card = document.createElement('div');
-        card.classList.add("col-md-6");
-        card.classList.add("columna-productos");
-        card.innerHTML = 
-        `
-            <div class="card">
-                <img src="${elemento.imagen}" class="card-img-top" alt="Producto 1">
-                <div class="card-body">
-                    <h5 class="card-title"> ${elemento.nombre}</h5>
-                    <p class="card-text"> ${elemento.ingredientes}</p>
-                    <div class="card-price">
-                        <p class="card-text">Precio: $ ${elemento.precio}</p>
-                    </div>
-                    <div class="d-grid gap-2"> 
-                        <button class="btn agregar btn-warning" onclick="agregarProducto(${elemento.codigo},'${tipo}')" type="button">Agregar</button>
-                    </div>
-                </div>
-            </div>
-        `;
-        div.appendChild(card);
-
-    })
+    console.log(data);
+    listadoMediana = data;
+    const contenedorCards = document.querySelector("#contenedor-card");
+    rellenaCards(listadoMediana, contenedorCards, "M");
 
 })
+
+fetch('../datafamiliar.json')
+.then((response)=> response.json())
+.then((data)=>{
+    console.log(data);
+    listadoFamiliar = data;
+    const contenedorCardsFamiliares = document.querySelector("#contenedor-card-familiares");
+    rellenaCards(listadoFamiliar, contenedorCardsFamiliares, "F");
+
+})
+
 
