@@ -5,4 +5,8 @@ abrir login.html para iniciar aplicacion
 username = "vanina"
 password = "1234"
 
+# AUTOR:
+<NAME> Nathalie Lagos Soto
+
+
 
